@@ -10,4 +10,11 @@ The Progress Bar library provides a way to generate unique URLs, update their pr
 - [Example Usage](#example-usage)
 
 
+#installation
 
+
+```
+brew tap mongodb/brew
+brew install mongodb-community
+brew services start mongodb/brew/mongodb-community
+```
