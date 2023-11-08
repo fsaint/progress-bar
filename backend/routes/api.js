@@ -52,4 +52,21 @@ router.patch('/update/:uniqueUrl', async (req, res) => {
   }
 });
 
+
+// Get progress by unique ID
+router.get('/progress/:uniqueId', async (req, res) => {
+  try {
+    const url = await Url.findOne({ unique_id: req.params.uniqueId });
+
+    if (!url) {
+      return res.status(404).json({ error: 'URL not found' });
+    }
+
+    res.json({ progress: url.progress });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to get progress' });
+  }
+});
+
+
 module.exports = router;
