@@ -15,7 +15,7 @@ class URLTrackerClient:
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
 
-    def update_url(self, unique_url, progress=None, status=None, message=None):
+    def update_url(self, unique_id, progress=None, status=None, message=None):
         data = {}
         if progress is not None:
             data['progress'] = progress
@@ -25,7 +25,7 @@ class URLTrackerClient:
             data['message'] = message
 
         try:
-            response = requests.patch(f"{self.base_url}/api/update/{unique_url}", json=data)
+            response = requests.patch(f"{self.base_url}/api/update/{unique_id}", json=data)
             if response.status_code == 200:
                 return response.json()
             else:
@@ -43,5 +43,5 @@ if __name__ == "__main__":
     print("Created URL:", new_url)
 
     # Update the URL with progress, status, and message
-    unique_url = new_url["url"]
+    unique_url = new_url["unique_id"]
     client.update_url(unique_url, progress=0.5, status="in progress", message="Processing data...")

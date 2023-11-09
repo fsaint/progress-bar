@@ -25,8 +25,6 @@ app.use(express.json());
 app.use('/api', apiRoutes);
 
 app.get('/static/*',(req,res)=> {
-  //console.log(req.pa)
-  console.log(path.join(__dirname,'../web-frontend',req.params[0]));
   res.sendFile(path.join(__dirname,'../web-frontend',req.params[0]));
  });
 
