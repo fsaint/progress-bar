@@ -29,7 +29,7 @@ class URLTrackerClient:
             if response.status_code == 200:
                 return response.json()
             else:
-                print("Failed to update URL")
+                print(f"Failed to update URL {response.status_code }")
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
 
@@ -43,5 +43,5 @@ if __name__ == "__main__":
     print("Created URL:", new_url)
 
     # Update the URL with progress, status, and message
-    unique_url = new_url["uniqueUrl"]
+    unique_url = new_url["url"]
     client.update_url(unique_url, progress=0.5, status="in progress", message="Processing data...")

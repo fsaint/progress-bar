@@ -1,7 +1,7 @@
 const express = require('express');
 const Url = require('../src/models/Url');
-
 const router = express.Router();
+
 
 
 const generateUniqueURL = () => {
@@ -25,7 +25,7 @@ router.post('/create_url', async (req, res) => {
       unique_id: generateUniqueURL(),
     });
     await newUrl.save();
-    res.json(newUrl);
+    res.status(200).json(newUrl);
   } catch (error) {
     console.log(error)
     res.status(500).json({ error: 'Failed to create a new URL' });
@@ -67,6 +67,8 @@ router.get('/progress/:uniqueId', async (req, res) => {
     res.status(500).json({ error: 'Failed to get progress' });
   }
 });
+
+
 
 
 module.exports = router;
