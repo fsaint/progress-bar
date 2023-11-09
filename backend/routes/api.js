@@ -36,18 +36,19 @@ router.post('/create_url', async (req, res) => {
 router.patch('/update/:uniqueUrl', async (req, res) => {
   const { progress, status, message } = req.body;
   try {
-    const updatedUrl = await UrlModel.findOneAndUpdate(
-      { uniqueUrl: req.params.uniqueUrl },
+    const updatedUrl = await Url.findOneAndUpdate(
+      { unique_id: req.params.uniqueUrl },
       { progress, status, message },
       { new: true }
     );
-
+    console.log(updatedUrl)
     if (!updatedUrl) {
       return res.status(404).json({ error: 'URL not found' });
     }
 
     res.json(updatedUrl);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Failed to update URL' });
   }
 });
