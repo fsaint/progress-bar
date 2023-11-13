@@ -1,11 +1,10 @@
 /*
 Need to open the connection to the correct URL and path
-
 */
 
 const socket = io(); // Assuming you are hosting the WebSocket server on the same domain
-
-const uniqueUrl = "YOUR_UNIQUE_URL"; // Replace with the specific URL you want to track
+const pathArray = window.location.pathname.split('/');
+const uniqueUrl = pathArray[pathArray.length - 1]; // This will give you the last element in the URL path
 
 const statusElement = document.getElementById("status");
 const progressElement = document.getElementById("progress");

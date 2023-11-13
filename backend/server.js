@@ -24,6 +24,10 @@ mongoose.connect('mongodb://127.0.0.1/progressbar', {
 app.use(express.json());
 app.use('/api', apiRoutes);
 
+app.get('/static/view/:unique_id',(req,res)=> {
+  res.sendFile(path.join(__dirname,'../web-frontend/index.html'));
+ });
+
 app.get('/static/*',(req,res)=> {
   res.sendFile(path.join(__dirname,'../web-frontend',req.params[0]));
  });
@@ -38,6 +42,7 @@ app.get('*', function(req, res) {
 // WebSocket connection
 io.on('connection', (socket) => {
   socket.on('subscribe', (uniqueUrl) => {
+    console.log("SUB",uniqueUrl)
     socket.join(uniqueUrl);
   });
 });
