@@ -13,8 +13,7 @@ const messageElement = document.getElementById("message");
 socket.emit('subscribe', uniqueUrl);
 
 socket.on('update', (data) => {
-  console.log("UPDATE")
-  if (data.uniqueUrl === uniqueUrl) {
+  if (data.unique_id === uniqueUrl) {
     if (data.status) {
       statusElement.textContent = data.status;
     }

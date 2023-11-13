@@ -47,5 +47,5 @@ if __name__ == "__main__":
     unique_url = new_url["unique_id"]
 
     for i in range(100):
-        client.update_url(unique_url, progress=1 / 100.0, status=f"in progress {i}", message=f"Processing data... {i}")
+        client.update_url(unique_url, progress=i / 100.0 , status=f"in progress {i}", message=f"Processing data... {i}")
         time.sleep(1)
