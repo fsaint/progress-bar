@@ -25,3 +25,25 @@ socket.on('update', (data) => {
     }
   }
 });
+
+
+function loadAndUpdate() {
+  fetch(`/progress/${uniqueUrl}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.unique_id === uniqueUrl) {
+        if (data.status) {
+          statusElement.textContent = data.status;
+        }
+        if (typeof data.progress === 'number') {
+          progressElement.style.width = `${data.progress * 100}%`;
+        }
+        if (data.message) {
+          messageElement.textContent = data.message;
+        }
+      }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+loadAndUpdate();
