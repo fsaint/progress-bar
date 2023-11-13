@@ -1,12 +1,11 @@
 const express = require('express');
-const http = require('http');
+
 const mongoose = require('mongoose');
-const socketIo = require('socket.io');
+
 const apiRoutes = require('./routes/api');
 const path = require('path');
-const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+
+const {server, app, io} = require("./app.js")
 
 const PORT = process.env.PORT || 3000;
 
@@ -24,7 +23,7 @@ mongoose.connect('mongodb://127.0.0.1/progressbar', {
 app.use(express.json());
 app.use('/api', apiRoutes);
 
-app.get('/static/view/:unique_id',(req,res)=> {
+app.get('/bar/:unique_id',(req,res)=> {
   res.sendFile(path.join(__dirname,'../web-frontend/index.html'));
  });
 
@@ -42,7 +41,6 @@ app.get('*', function(req, res) {
 // WebSocket connection
 io.on('connection', (socket) => {
   socket.on('subscribe', (uniqueUrl) => {
-    console.log("SUB",uniqueUrl)
     socket.join(uniqueUrl);
   });
 });

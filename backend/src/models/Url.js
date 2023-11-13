@@ -17,7 +17,7 @@ const urlSchema = new mongoose.Schema({
   url: {
     type: String,
     default: function() {
-      return BASEURL + 'progress/' + this.unique_id
+      return BASEURL + 'bar/' + this.unique_id
     }
   }
 });

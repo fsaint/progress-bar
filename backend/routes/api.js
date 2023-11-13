@@ -3,6 +3,8 @@ const Url = require('../src/models/Url');
 const router = express.Router();
 
 
+const {server, app, io} = require("../app")
+
 
 const generateUniqueURL = () => {
 
@@ -42,6 +44,8 @@ router.patch('/update/:uniqueUrl', async (req, res) => {
       { new: true }
     );
     console.log(updatedUrl)
+    io.to(updatedUrl.unique_id).emit('update', updatedUrl);
+    
     if (!updatedUrl) {
       return res.status(404).json({ error: 'URL not found' });
     }

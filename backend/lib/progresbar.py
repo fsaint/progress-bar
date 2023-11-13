@@ -1,5 +1,6 @@
 import requests
-
+import time
+        
 class URLTrackerClient:
     def __init__(self, base_url):
         self.base_url = base_url
@@ -44,4 +45,7 @@ if __name__ == "__main__":
 
     # Update the URL with progress, status, and message
     unique_url = new_url["unique_id"]
-    client.update_url(unique_url, progress=0.5, status="in progress", message="Processing data...")
+
+    for i in range(100):
+        client.update_url(unique_url, progress=1 / 100.0, status=f"in progress {i}", message=f"Processing data... {i}")
+        time.sleep(1)
