@@ -22,9 +22,11 @@ const generateUniqueURL = () => {
 
 // Create a new unique URL
 router.post('/create_url', async (req, res) => {
+  const title = req.body.title;
   try {
     const newUrl = new Url({
       unique_id: generateUniqueURL(),
+      title: title
     });
     await newUrl.save();
     res.status(200).json(newUrl);

@@ -9,7 +9,7 @@ const uniqueUrl = pathArray[pathArray.length - 1]; // This will give you the las
 const statusElement = document.getElementById("status");
 const progressElement = document.getElementById("progress");
 const messageElement = document.getElementById("message");
-
+const titleElement = document.getElementById("title");
 socket.emit('subscribe', uniqueUrl);
 
 socket.on('update', (data) => {
@@ -21,29 +21,12 @@ socket.on('update', (data) => {
       progressElement.style.width = `${data.progress * 100}%`;
     }
     if (data.message) {
-      messageElement.textContent = data.message;
+      let messageLines = data.message.split('\n');
+      messageElement.innerHTML = messageLines.join('<br/>');
+    }
+    if (data.title) {
+      titleElement.textContent = data.title;
+      document.title = data.title;
     }
   }
 });
-
-
-function loadAndUpdate() {
-  fetch(`/progress/${uniqueUrl}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.unique_id === uniqueUrl) {
-        if (data.status) {
-          statusElement.textContent = data.status;
-        }
-        if (typeof data.progress === 'number') {
-          progressElement.style.width = `${data.progress * 100}%`;
-        }
-        if (data.message) {
-          messageElement.textContent = data.message;
-        }
-      }
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-loadAndUpdate();
