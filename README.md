@@ -1,16 +1,24 @@
 # Progress Bar
 
-The Progress Bar library provides a way to generate unique URLs, update their progress, status, and messages, and send real-time updates to clients.
+I was tired of running long proceces and keeping up with the status using messy print statements. 
 
-## Table of Contents
+Progress Bar is a library to view realtime updates of a process on the Web.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Example Usage](#example-usage)
+Progress Bar will give you a URL to see the progress, status, and messages send by the process.
 
+Besides showing progress, Progress Bar will also indicate if the process crashes.
+
+The server is implemented in node with very few dependencies. We offer a python client, and a node client will follow soon. 
+
+I'm running a free server is you want to try the library.
 
 # installation
+
+# Getting Started
+
+
+
+# Running the server
 
 ## Mongo (Mac)
 ```
@@ -37,11 +45,13 @@ node server.js
 # todo
 ## V 0.1
 - [X] Handle crashes
+- [ ] show the running time.
 - [ ] Extract options to a config file.  In particular the BASE url.
 - [X] Add the title parameter when creating the URL.
-- [ ] Change colors happen.
+- [X] Change colors on status.
 - [ ] Improve UI: make it dark themed. 
 - [ ] Add better font
+- [ ] API Documentation
 
 
 ## Backlog

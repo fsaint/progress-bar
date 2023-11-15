@@ -110,6 +110,9 @@ class URLTrackerClient:
             print(f"Request failed: {e}")
     
 
+    def stall(self):
+        self.update_url(status=Status.STALLED, message="Process finished")
+
     def terminate(self):
         self.update_url(status=Status.FINISHED, message="Process finished")
         created_urls.remove(self)
