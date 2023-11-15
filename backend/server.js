@@ -1,5 +1,5 @@
 const express = require('express');
-
+const Url = require('./src/models/Url');
 const mongoose = require('mongoose');
 
 const apiRoutes = require('./routes/api');
@@ -40,8 +40,10 @@ app.get('*', function(req, res) {
 
 // WebSocket connection
 io.on('connection', (socket) => {
-  socket.on('subscribe', (uniqueUrl) => {
+  socket.on('subscribe', async (uniqueUrl) => {
     socket.join(uniqueUrl);
+    const updatedUrl = await Url.findOne({ unique_id: uniqueUrl });
+    io.to(updatedUrl.unique_id).emit('update', updatedUrl);
   });
 });
 
