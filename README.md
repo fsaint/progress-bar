@@ -36,10 +36,10 @@ node server.js
 
 # todo
 ## V 0.1
-- [ ] Handle crashes
+- [X] Handle crashes
 - [ ] Extract options to a config file.  In particular the BASE url.
 - [X] Add the title parameter when creating the URL.
-- [ ] Change colors when errors happen.
+- [ ] Change colors happen.
 - [ ] Improve UI: make it dark themed. 
 - [ ] Add better font
 

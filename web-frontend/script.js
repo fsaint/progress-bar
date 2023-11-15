@@ -12,10 +12,28 @@ const messageElement = document.getElementById("message");
 const titleElement = document.getElementById("title");
 socket.emit('subscribe', uniqueUrl);
 
-socket.on('update', (data) => {
+
+const update_status = (status_value) => {
+  // update the text val
+  statusElement.textContent = status_value;
+  // update color
+  const color_map = {
+    'PENDING': '#a9a9a9',
+    'IN_PROGRESS': '#2ecc71',
+    'STALLED':'#cc5b2e',
+    'FAILED':'#cc2e2e',
+    'FINISHED':'#2e6dcc'
+  }
+  const color = color_map[status_value];
+  if (color){
+    progressElement.style.backgroundColor = color;
+  }
+}
+
+const update = (data) => {
   if (data.unique_id === uniqueUrl) {
     if (data.status) {
-      statusElement.textContent = data.status;
+      update_status(data.status);
     }
     if (typeof data.progress === 'number') {
       progressElement.style.width = `${data.progress * 100}%`;
@@ -29,4 +47,6 @@ socket.on('update', (data) => {
       document.title = data.title;
     }
   }
-});
+}
+
+socket.on('update', update);

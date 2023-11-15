@@ -19,6 +19,7 @@ class Status:
 
 
 def handle_unhandled_exception(exc_type, exc_value, exc_traceback):
+    global exception;
     exception = True
     for url in created_urls:
         url.exception(exc_type, exc_value, exc_traceback)
