@@ -13,6 +13,30 @@ const titleElement = document.getElementById("title");
 socket.emit('subscribe', uniqueUrl);
 
 
+
+let start_time = undefined;
+
+const timeElement = document.getElementById("time");
+const update_time = () => {
+  if (!start_time){
+      return;
+  }
+  let now = new Date();
+  let diff = now - start_time;
+
+  let hours = Math.floor(diff / 1000 / 60 / 60);
+  diff -= hours * 1000 * 60 * 60;
+
+  let mins = Math.floor(diff / 1000 / 60);
+  diff -= mins * 1000 * 60;
+
+  let secs = Math.floor(diff / 1000);
+
+  timeElement.textContent = `${hours}h ${mins}m ${secs}s`;
+}
+setInterval(update_time, 1000);
+
+
 const update_status = (status_value) => {
   // update the text val
   statusElement.textContent = status_value;
@@ -45,6 +69,9 @@ const update = (data) => {
     if (data.title) {
       titleElement.textContent = data.title;
       document.title = data.title;
+    }
+    if (data.createdAt){
+      start_time = new Date(data.createdAt);
     }
   }
 }
