@@ -12,6 +12,7 @@ The Progress Bar library provides a way to generate unique URLs, update their pr
 
 # installation
 
+## Mongo (Mac)
 ```
 brew tap mongodb/brew
 brew install mongodb-community
@@ -20,10 +21,15 @@ brew services start mongodb/brew/mongodb-community
 
 # run the server
 
+```
+node server.js
+```
+
 # todo
-1. Add the title parameter when creating the URL
-2. Change colors when errors happen
-3. Improve UI
-4. Implement modular loading when the progress is more than one
-5. Show a list of events. Log style
-6. Estimated time of completion
+- [ ] Handle crashes
+- [ ] Add the title parameter when creating the URL
+- [ ] Change colors when errors happen
+- [ ] Improve UI
+- [ ] Implement modular loading when the progress is more than one
+- [ ] Show a list of events. Log style
+- [ ] Estimated time of completion
