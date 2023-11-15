@@ -5,6 +5,7 @@ import atexit
 import os
 import psutil
 import traceback
+import qrcode
 
 exception = False
 created_urls = []
@@ -65,6 +66,17 @@ class URLTrackerClient:
             if response.status_code == 200:
                 response_url_object = response.json()
                 self.unique_id = response_url_object['unique_id']
+                url = response_url_object['url']
+            
+                qr = qrcode.QRCode(
+                    version=1,
+                    error_correction=qrcode.constants.ERROR_CORRECT_L,
+                    box_size=10,
+                    border=4,
+                )
+                qr.add_data(url)
+                qr.make(fit=True)
+                qr.print_ascii()
                 return response_url_object
             else:
                 print("Failed to create a new URL")
