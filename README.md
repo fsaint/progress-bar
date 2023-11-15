@@ -13,7 +13,9 @@ The server is implemented in node with very few dependencies. We offer a python 
 I'm running a free server is you want to try the library.
 
 # installation
-
+```
+pip install https://raw.githubusercontent.com/fsaint/progress-bar/main/backend/lib/python/dist/ProgressBar_fsaint-1.0.tar.gz
+```
 # Getting Started
 
 
