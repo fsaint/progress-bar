@@ -47,15 +47,20 @@ node server.js
 # todo
 ## V 0.1
 - [X] Handle crashes
-- [ ] show the running time.
-- [ ] Extract options to a config file.  In particular the BASE url.
+- [X] show the running time.
 - [X] Add the title parameter when creating the URL.
 - [X] Change colors on status.
-- [ ] Improve UI: make it dark themed. 
-- [ ] Add better font
+- [X] Improve UI: make it dark themed. 
 - [ ] API Documentation
 
 
 ## Backlog
 - [ ] Show a list of events. Log style
 - [ ] Estimated time of completion
+- [ ] Add better font
+
+
+## Create the packgage
+```
+python setup.py sdist
+```

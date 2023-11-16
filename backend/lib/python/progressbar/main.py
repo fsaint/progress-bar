@@ -45,8 +45,8 @@ def get_memory_usage():
     return process.memory_info().rss
 
 
-class URLTrackerClient:
-    def __init__(self, base_url):
+class ProgressBar:
+    def __init__(self, base_url = 'https://progressbar.fsj.pw'):
         self.base_url = base_url
         self.unique_id = None
         created_urls.append(self)
@@ -87,6 +87,9 @@ class URLTrackerClient:
     def exception(self, exc_type, exc_value, exc_traceback):
         exception_details = "".join(traceback.format_exception(exc_type, exc_value, exc_traceback))
         self.update_url(status=Status.FAILED, message=exception_details)
+
+    def progress(self, progress = 0.0, message = None):
+        self.update_url(progress, status = Status.IN_PROGRESS, message=message)
 
     def update_url(self, progress=None, status=None, message=None):
         """
@@ -131,8 +134,7 @@ class URLTrackerClient:
 
 # Usage example:
 if __name__ == "__main__":
-    base_url = "http://localhost:3000"  # Replace with the actual URL of your Node.js backend API
-    client = URLTrackerClient(base_url)
+    client = ProgressBar()
 
     # Create a new URL
     new_url = client.create_url()
@@ -141,6 +143,6 @@ if __name__ == "__main__":
     # Update the URL with progress, status, and message
     input()
     for i in range(100):
-        client.update_url(progress=i / 100.0 , status="IN_PROGRESS", message=f"Processing data... {i}")
+        client.progress(progress=i / 100.0 , message=f"Processing data... {i}")
         time.sleep(1)
         

@@ -12,10 +12,10 @@ const PORT = process.env.PORT || 3000;
 //app.use(express.static('public'))
 //app.use(express.static(path.join(__dirname, '../web-frontend/')));
 
-
+const MONGO_HOST = '127.0.0.1'
 
 // Connect to MongoDB (Make sure you have a MongoDB instance running)
-mongoose.connect('mongodb://127.0.0.1/progressbar', {
+mongoose.connect(`mongodb://${MONGO_HOST}/progressbar`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

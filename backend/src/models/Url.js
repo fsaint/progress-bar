@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const BASEURL = 'http://localhost:3000/'
+const BASEURL = 'https://progressbar.fsj.pw'
 const urlSchema = new mongoose.Schema({
   title: {
     type: String, 
