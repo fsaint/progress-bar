@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const BASEURL = 'https://progressbar.fsj.pw'
+
+const { BASE_URL } = require("../../settings")
+
 const urlSchema = new mongoose.Schema({
   title: {
     type: String, 
@@ -32,7 +34,7 @@ const urlSchema = new mongoose.Schema({
   url: {
     type: String,
     default: function() {
-      return BASEURL + 'bar/' + this.unique_id
+      return BASE_URL + 'bar/' + this.unique_id
     }
   }
 });
