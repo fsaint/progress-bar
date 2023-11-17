@@ -7,7 +7,7 @@ Besides showing progress, Progress Bar will also indicate if the process crashes
 The server is implemented in node with very few dependencies. We offer a python client, and a node client will follow soon. 
 I'm running a free server is you want to try the library.
 
-![Image][https://p198.p4.n0.cdn.getcloudapp.com/items/5zubR15K/a38ca9ce-0379-457c-94b4-6eeebc2e2c13.png?v=b8d60df8f85c15d082ca8d2452233f42]
+![Image](https://p198.p4.n0.cdn.getcloudapp.com/items/5zubR15K/a38ca9ce-0379-457c-94b4-6eeebc2e2c13.png?v=b8d60df8f85c15d082ca8d2452233f42)
 
 
 # installation
