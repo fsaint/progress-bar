@@ -7,12 +7,15 @@ Besides showing progress, Progress Bar will also indicate if the process crashes
 The server is implemented in node with very few dependencies. We offer a python client, and a node client will follow soon. 
 I'm running a free server is you want to try the library.
 
+![Image][https://p198.p4.n0.cdn.getcloudapp.com/items/5zubR15K/a38ca9ce-0379-457c-94b4-6eeebc2e2c13.png?v=b8d60df8f85c15d082ca8d2452233f42]
+
+
 # installation
 ```
 pip install https://raw.githubusercontent.com/fsaint/progress-bar/main/backend/lib/python/dist/ProgressBar_fsaint-1.0.tar.gz
 ```
 # Getting Started
-```
+```python:
 from progressbar import ProgressBar
 
 progresbar = ProgressBar()
@@ -34,7 +37,7 @@ So you can get the URL on your phone, ProgressBar will pring a handy QR code of 
 # Example
 In this example we show a simple scraper that uses  beautiful soup to extract the title of the scrapped page.
 
-```
+```python:
 import requests
 from bs4 import BeautifulSoup
 from progressbar import ProgressBar
