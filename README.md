@@ -13,10 +13,45 @@ pip install https://raw.githubusercontent.com/fsaint/progress-bar/main/backend/l
 ```
 # Getting Started
 ```
+from progressbar import ProgressBar
 
+progresbar = ProgressBar()
+print(progresbar.url)
+
+long_list = [...]
+
+for i, element in enumerate(long_list):
+    progresbar.progress(float(i + 1) / len(urls), message=f"Processing element {i}")
+    process(element)
 
 ```
 
+
+# Example
+In this example we show a simple scraper that uses  beautiful soup to extract the title of the scrapped page.
+
+```
+import requests
+from bs4 import BeautifulSoup
+from progressbar import ProgressBar
+import time
+
+urls = [
+   "https://www.example/1",
+   "https://www.example/2",
+   ...
+]
+progresbar = ProgressBar()
+print(progresbar.url)
+progresbar.progress(0, message="Ready ...")
+for i, url in enumerate(urls):
+    response = requests.get(url)
+    html = response.text
+    soup = BeautifulSoup(html, 'html.parser')
+    progresbar.progress(float(i + 1) / len(urls), message=soup.title.text)
+    # Rest of your code to parse the HTML with BeautifulSoup
+    time.sleep(2)
+```
 
 # Running the server
 
