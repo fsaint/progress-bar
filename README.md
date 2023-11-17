@@ -26,6 +26,10 @@ for i, element in enumerate(long_list):
 
 ```
 
+So you can get the URL on your phone, ProgressBar will pring a handy QR code of the generated URL. 
+
+![Image](https://p198.p4.n0.cdn.getcloudapp.com/items/nOuQ48wB/c78dd380-90ec-42a7-9717-f87c9c1813ac.jpg?v=f01c550160639cdc712fd01035be3d18)
+
 
 # Example
 In this example we show a simple scraper that uses  beautiful soup to extract the title of the scrapped page.
