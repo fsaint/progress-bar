@@ -3,7 +3,7 @@ const Url = require('../src/models/Url');
 const router = express.Router();
 
 
-const {server, app, io} = require("../app")
+const { io } = require("../app")
 
 
 const generateUniqueURL = () => {

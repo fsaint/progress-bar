@@ -46,10 +46,15 @@ def get_memory_usage():
 
 
 class ProgressBar:
-    def __init__(self, base_url = 'https://progressbar.fsj.pw'):
+    def __init__(self, base_url = 'https://progressbar.fsj.pw', title = None):
         self.base_url = base_url
         self.unique_id = None
+        self.remote = self.create_url(title = title)
         created_urls.append(self)
+
+    @property
+    def url(self):
+        return self.remote.get('url')
 
     def create_url(self, title = None):
         """
@@ -134,15 +139,15 @@ class ProgressBar:
 
 # Usage example:
 if __name__ == "__main__":
-    client = ProgressBar()
+    progressbar = ProgressBar()
 
     # Create a new URL
-    new_url = client.create_url()
+    new_url = progressbar.url
     print("Created URL:", new_url)
 
     # Update the URL with progress, status, and message
     input()
     for i in range(100):
-        client.progress(progress=i / 100.0 , message=f"Processing data... {i}")
+        progressbar.progress(progress=i / 100.0 , message=f"Processing data... {i}")
         time.sleep(1)
         

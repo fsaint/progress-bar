@@ -1,15 +1,10 @@
 # Progress Bar
 
 I was tired of running long proceces and keeping up with the status using messy print statements. 
-
 Progress Bar is a library to view realtime updates of a process on the Web.
-
 Progress Bar will give you a URL to see the progress, status, and messages send by the process.
-
 Besides showing progress, Progress Bar will also indicate if the process crashes.
-
 The server is implemented in node with very few dependencies. We offer a python client, and a node client will follow soon. 
-
 I'm running a free server is you want to try the library.
 
 # installation
@@ -17,7 +12,10 @@ I'm running a free server is you want to try the library.
 pip install https://raw.githubusercontent.com/fsaint/progress-bar/main/backend/lib/python/dist/ProgressBar_fsaint-1.0.tar.gz
 ```
 # Getting Started
+```
 
+
+```
 
 
 # Running the server
