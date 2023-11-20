@@ -1,6 +1,6 @@
-# Progress Bar
+# Progress Bar: Keep track of long-running processes
 
-I was tired of running long proceces and keeping up with the status using messy print statements. 
+Tired of running long proceces and keeping up with the status using messy print statements?
 Progress Bar is a library to view realtime updates of a process on the Web.
 Progress Bar will give you a URL to see the progress, status, and messages send by the process.
 Besides showing progress, Progress Bar will also indicate if the process crashes.
